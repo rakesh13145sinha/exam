@@ -1,0 +1,31 @@
+{% extends "templates/shopapp/home.html" %}
+{% block home %}
+{%load crispy_forms_tags%}
+
+<div class="form_group">
+<form method="post">
+<div class="row">
+<div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <h4 class="h4">Login here</h4>
+    </div>
+    <div class="col-sm">
+    </div>
+</div>
+<br><br>
+<div class="row">
+<div class="col-sm">
+    </div>
+    <div class="col-sm">
+      {{form.as_p}}
+      {% csrf_token %}
+       <input  class="btn btn-primary "type="submit" name="submit" value="Login">
+    </div>
+    <div class="col-sm">
+      
+    </div>
+</div>
+</form>
+</div>
+{% endblock  %}

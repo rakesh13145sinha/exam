@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home page</title>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+</head>
+<body class="bg-light text-dark">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Exam</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/java">Java</a>
+      <a class="nav-item nav-link" href="/python">Python</a>
+      <a class="nav-item nav-link" href="/sql">sql</a>
+      <a class="nav-item nav-link" href="/accounts/password_change">change_password</a>
+
+      {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="/accounts/logout">logout</a>
+
+      {% else %}
+        <a class="nav-item nav-link" href="/accounts/login">login</a>
+        <a class="nav-item nav-link" href="/signup">Signup</a>
+        <a class="nav-item nav-link" href="/signfor">csingnup</a>
+      {% endif %}
+      
+      
+
+
+    </div>
+  </div>
+</nav>
+<hr>
+
+</div>
+<div class="container">
+<p class="h5">welcome to Onlie Exam :{% if user.is_authenticated %}{{user.username}}{% else %}visitor!! {% endif %}</p>
+<hr>
+</div>
+
+
+<div class="container">
+{% block home %}
+
+{% endblock  %}
+<hr>
+<nav class="navbar navbar-dark bg-primary">
+  <footer>Now time is:-{{date}}</footer>
+  <footer>our total user is:-{{count}}</footer>
+</nav>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "templates/shopapp/home.html" %}
+{% block home %}
+{% if display_list %}
+
+    {{st.name}}
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Sname</th>
+      <th scope="col">Roll</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for st in display_list %}
+    <tr>
+      <th scope="row">{{st.name}}</th>
+      <td>{{st.s_name}}</td>
+      <td>{{st.roll}}</td>
+      <td>{{st.address}}</td>
+    </tr>
+    
+    {% endfor %}
+  </tbody>
+  
+</table>
+
+
+{% else %}
+<p>Empty..............sorry</p>
+{% endif %}
+
+{% endblock home %}
